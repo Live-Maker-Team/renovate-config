@@ -1,0 +1,25 @@
+{
+  "extends": ["config:base", ":maintainLockFilesWeekly"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "lockFileMaintenance"
+      ],
+      "automerge": true
+    }
+  ],
+  "labels": ["dependencies"],
+  "node": {
+    "enabled": true,
+    "supportPolicy": ["lts_latest"]
+  },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security"]
+  },
+  "postUpdateOptions": ["npmDedupe"]
+}
